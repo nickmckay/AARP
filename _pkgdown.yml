@@ -35,6 +35,10 @@ navbar:
           href: articles/temperature-reconstruction.html
         - text: "Bacterial resetting of D/L ratios"
           href: articles/bacterial-correction.html
+        - text: "Two-acid Bayesian age inversion (Asp + Glu)"
+          href: articles/two-acid-age-inversion.html
+        - text: "Two-acid age dating: a shared forward model"
+          href: articles/two-acid-age-forward-model.html
 
 reference:
   - title: "Forward model"
@@ -95,3 +99,66 @@ reference:
       - plot_temperature_reconstruction
       - posterior_predictive_DL
       - plotInputs
+
+  - title: "Two-acid AAR age dating"
+    desc: >
+      Bayesian calibration and age inversion combining aspartic (TDK) and
+      glutamic (SPK) acid D/L ratios, as an alternative to GLS-combined
+      point-estimate age calculators.
+    contents:
+      - f_tdk
+      - f_spk
+      - predict_age_asp
+      - predict_age_glu
+      - predict_DL_asp
+      - predict_DL_glu
+      - log_lik_age_calibration
+      - log_prior_age_calibration
+      - log_posterior_age_calibration
+      - summarize_calibration
+      - plot_age_calibration_fit
+      - log_lik_two_acid_age
+      - log_prior_age
+      - log_posterior_two_acid_age
+      - invert_two_acid_age
+      - summarize_age_posterior
+      - plot_age_posterior
+
+  - title: "Two-acid AAR age dating — shared forward model"
+    desc: >
+      Alternative to the empirical TDK/SPK curve fit above: fits one shared
+      Arrhenius + Bada power-law kinetic model per acid, forward-simulated
+      through real age-depth models and a placeholder temperature history,
+      via the same depth-series machinery used for lake-sediment
+      paleothermometry.
+    contents:
+      - build_core_age_models
+      - simulate_temp_history
+      - precompute_forward_inputs
+      - predict_forward_DL
+      - log_lik_age_calibration_fwd
+      - log_prior_age_calibration_fwd
+      - log_posterior_age_calibration_fwd
+      - summarize_calibration_fwd
+      - plot_age_calibration_fit_fwd
+      - plot_ae_ea_posterior
+      - plot_prior_posterior_fwd
+      - log_lik_two_acid_age_fwd
+      - log_posterior_two_acid_age_fwd
+      - invert_two_acid_age_fwd
+      - log_lik_one_acid_age_fwd
+      - log_posterior_one_acid_age_fwd
+      - invert_one_acid_age_fwd
+      - log_lik_two_acid_age_tempunc
+      - log_posterior_two_acid_age_tempunc
+      - invert_two_acid_age_tempunc
+
+  - title: "Two-acid AAR age dating — reference GLS calculator"
+    desc: >
+      Faithful R port of the original spreadsheet age calculator (GLS
+      combination of independent Asp/Glu age estimates with softplus weight
+      smoothing), included so the two Bayesian approaches above can be
+      compared directly against the point-estimate method they build on.
+    contents:
+      - gls_calibration_constants
+      - predict_age_gls

@@ -37,3 +37,6 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# Darrell's unpublished draft manuscript and source data
+DarrellsAgePaper/
