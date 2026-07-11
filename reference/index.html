@@ -22,6 +22,8 @@
     <li><a class="dropdown-item" href="../articles/kinetics-fitting.html">Stage 1 — Bayesian kinetics estimation</a></li>
     <li><a class="dropdown-item" href="../articles/temperature-reconstruction.html">Stage 2 — Holocene temperature reconstruction</a></li>
     <li><a class="dropdown-item" href="../articles/bacterial-correction.html">Bacterial resetting of D/L ratios</a></li>
+    <li><a class="dropdown-item" href="../articles/two-acid-age-inversion.html">Two-acid Bayesian age inversion (Asp + Glu)</a></li>
+    <li><a class="dropdown-item" href="../articles/two-acid-age-forward-model.html">Two-acid age dating: a shared forward model</a></li>
   </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
@@ -286,6 +288,306 @@
 
         </dt>
         <dd>Plot temperature inputs for a damped sediment record</dd>
+      </dl></div><div class="section level2">
+      <h2 id="two-acid-aar-age-dating">Two-acid AAR age dating<a class="anchor" aria-label="anchor" href="#two-acid-aar-age-dating"></a></h2>
+
+      <div class="section-desc"><p>Bayesian calibration and age inversion combining aspartic (TDK) and glutamic (SPK) acid D/L ratios, as an alternative to GLS-combined point-estimate age calculators.</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="f_tdk.html">f_tdk()</a></code>
+
+        </dt>
+        <dd>Predictor transform for the time-dependent kinetics (TDK) model</dd>
+
+        <dt>
+
+          <code><a href="f_spk.html">f_spk()</a></code>
+
+        </dt>
+        <dd>Predictor transform for the simple power-law kinetics (SPK) model</dd>
+
+        <dt>
+
+          <code><a href="predict_age_asp.html">predict_age_asp()</a></code>
+
+        </dt>
+        <dd>Predict age from D/L using the TDK (Asp) calibration curve</dd>
+
+        <dt>
+
+          <code><a href="predict_age_glu.html">predict_age_glu()</a></code>
+
+        </dt>
+        <dd>Predict age from D/L using the SPK (Glu) calibration curve</dd>
+
+        <dt>
+
+          <code><a href="predict_DL_asp.html">predict_DL_asp()</a></code>
+
+        </dt>
+        <dd>Predict D/L from age using the TDK (Asp) calibration curve</dd>
+
+        <dt>
+
+          <code><a href="predict_DL_glu.html">predict_DL_glu()</a></code>
+
+        </dt>
+        <dd>Predict D/L from age using the SPK (Glu) calibration curve</dd>
+
+        <dt>
+
+          <code><a href="log_lik_age_calibration.html">log_lik_age_calibration()</a></code>
+
+        </dt>
+        <dd>Log-likelihood for the joint two-acid age calibration</dd>
+
+        <dt>
+
+          <code><a href="log_prior_age_calibration.html">log_prior_age_calibration()</a></code>
+
+        </dt>
+        <dd>Log-prior for the joint two-acid age calibration</dd>
+
+        <dt>
+
+          <code><a href="log_posterior_age_calibration.html">log_posterior_age_calibration()</a></code>
+
+        </dt>
+        <dd>Log-posterior for the joint two-acid age calibration (Stage 1)</dd>
+
+        <dt>
+
+          <code><a href="summarize_calibration.html">summarize_calibration()</a></code>
+
+        </dt>
+        <dd>Extract posterior-mean calibration parameters from a Stage 1 MCMC run</dd>
+
+        <dt>
+
+          <code><a href="plot_age_calibration_fit.html">plot_age_calibration_fit()</a></code>
+
+        </dt>
+        <dd>Plot fitted Asp and Glu calibration curves against calibration data</dd>
+
+        <dt>
+
+          <code><a href="log_lik_two_acid_age.html">log_lik_two_acid_age()</a></code>
+
+        </dt>
+        <dd>Log-likelihood for two-acid age inversion</dd>
+
+        <dt>
+
+          <code><a href="log_prior_age.html">log_prior_age()</a></code>
+
+        </dt>
+        <dd>Log-prior for sample age</dd>
+
+        <dt>
+
+          <code><a href="log_posterior_two_acid_age.html">log_posterior_two_acid_age()</a></code>
+
+        </dt>
+        <dd>Log-posterior for two-acid age inversion (Stage 2)</dd>
+
+        <dt>
+
+          <code><a href="invert_two_acid_age.html">invert_two_acid_age()</a></code>
+
+        </dt>
+        <dd>Run the two-acid Bayesian age inversion for one sample</dd>
+
+        <dt>
+
+          <code><a href="summarize_age_posterior.html">summarize_age_posterior()</a></code>
+
+        </dt>
+        <dd>Posterior summary for a two-acid age inversion</dd>
+
+        <dt>
+
+          <code><a href="plot_age_posterior.html">plot_age_posterior()</a></code>
+
+        </dt>
+        <dd>Plot the posterior age distribution for a two-acid age inversion</dd>
+      </dl></div><div class="section level2">
+      <h2 id="two-acid-aar-age-dating-shared-forward-model">Two-acid AAR age dating — shared forward model<a class="anchor" aria-label="anchor" href="#two-acid-aar-age-dating-shared-forward-model"></a></h2>
+
+      <div class="section-desc"><p>Alternative to the empirical TDK/SPK curve fit above: fits one shared Arrhenius + Bada power-law kinetic model per acid, forward-simulated through real age-depth models and a placeholder temperature history, via the same depth-series machinery used for lake-sediment paleothermometry.</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="build_core_age_models.html">build_core_age_models()</a></code>
+
+        </dt>
+        <dd>Build per-sample age-depth models from grouped core data</dd>
+
+        <dt>
+
+          <code><a href="simulate_temp_history.html">simulate_temp_history()</a></code>
+
+        </dt>
+        <dd>Simulate a placeholder glacial-interglacial temperature history</dd>
+
+        <dt>
+
+          <code><a href="precompute_forward_inputs.html">precompute_forward_inputs()</a></code>
+
+        </dt>
+        <dd>Precompute per-sample forward-model inputs for calibration</dd>
+
+        <dt>
+
+          <code><a href="predict_forward_DL.html">predict_forward_DL()</a></code>
+
+        </dt>
+        <dd>Forward-model D/L for a set of precomputed calibration samples</dd>
+
+        <dt>
+
+          <code><a href="log_lik_age_calibration_fwd.html">log_lik_age_calibration_fwd()</a></code>
+
+        </dt>
+        <dd>Log-likelihood for the forward-model two-acid calibration</dd>
+
+        <dt>
+
+          <code><a href="log_prior_age_calibration_fwd.html">log_prior_age_calibration_fwd()</a></code>
+
+        </dt>
+        <dd>Log-prior for the forward-model two-acid calibration</dd>
+
+        <dt>
+
+          <code><a href="log_posterior_age_calibration_fwd.html">log_posterior_age_calibration_fwd()</a></code>
+
+        </dt>
+        <dd>Log-posterior for the forward-model two-acid calibration (Stage 1)</dd>
+
+        <dt>
+
+          <code><a href="summarize_calibration_fwd.html">summarize_calibration_fwd()</a></code>
+
+        </dt>
+        <dd>Extract posterior-mean forward-model calibration parameters</dd>
+
+        <dt>
+
+          <code><a href="plot_age_calibration_fit_fwd.html">plot_age_calibration_fit_fwd()</a></code>
+
+        </dt>
+        <dd>Plot forward-model predicted vs. observed D/L for the calibration set</dd>
+
+        <dt>
+
+          <code><a href="plot_ae_ea_posterior.html">plot_ae_ea_posterior()</a></code>
+
+        </dt>
+        <dd>Plot the Ae-Ea posterior compensation ridge</dd>
+
+        <dt>
+
+          <code><a href="plot_prior_posterior_fwd.html">plot_prior_posterior_fwd()</a></code>
+
+        </dt>
+        <dd>Plot prior vs. posterior densities for all Stage 1 forward-model parameters</dd>
+
+        <dt>
+
+          <code><a href="log_lik_two_acid_age_fwd.html">log_lik_two_acid_age_fwd()</a></code>
+
+        </dt>
+        <dd>Log-likelihood for forward-model two-acid age inversion</dd>
+
+        <dt>
+
+          <code><a href="log_posterior_two_acid_age_fwd.html">log_posterior_two_acid_age_fwd()</a></code>
+
+        </dt>
+        <dd>Log-posterior for forward-model two-acid age inversion (Stage 2)</dd>
+
+        <dt>
+
+          <code><a href="invert_two_acid_age_fwd.html">invert_two_acid_age_fwd()</a></code>
+
+        </dt>
+        <dd>Run the forward-model two-acid age inversion for one sample</dd>
+
+        <dt>
+
+          <code><a href="log_lik_one_acid_age_fwd.html">log_lik_one_acid_age_fwd()</a></code>
+
+        </dt>
+        <dd>Log-likelihood for single-acid forward-model age inversion</dd>
+
+        <dt>
+
+          <code><a href="log_posterior_one_acid_age_fwd.html">log_posterior_one_acid_age_fwd()</a></code>
+
+        </dt>
+        <dd>Log-posterior for single-acid forward-model age inversion</dd>
+
+        <dt>
+
+          <code><a href="invert_one_acid_age_fwd.html">invert_one_acid_age_fwd()</a></code>
+
+        </dt>
+        <dd>Run the single-acid forward-model age inversion for one sample</dd>
+
+        <dt>
+
+          <code><a href="log_lik_two_acid_age_tempunc.html">log_lik_two_acid_age_tempunc()</a></code>
+
+        </dt>
+        <dd>Log-likelihood for two-acid age inversion with an uncertain temperature</dd>
+
+        <dt>
+
+          <code><a href="log_posterior_two_acid_age_tempunc.html">log_posterior_two_acid_age_tempunc()</a></code>
+
+        </dt>
+        <dd>Log-posterior for two-acid age inversion with temperature uncertainty</dd>
+
+        <dt>
+
+          <code><a href="invert_two_acid_age_tempunc.html">invert_two_acid_age_tempunc()</a></code>
+
+        </dt>
+        <dd>Run the two-acid age inversion with temperature uncertainty folded in</dd>
+      </dl></div><div class="section level2">
+      <h2 id="two-acid-aar-age-dating-reference-gls-calculator">Two-acid AAR age dating — reference GLS calculator<a class="anchor" aria-label="anchor" href="#two-acid-aar-age-dating-reference-gls-calculator"></a></h2>
+
+      <div class="section-desc"><p>Faithful R port of the original spreadsheet age calculator (GLS combination of independent Asp/Glu age estimates with softplus weight smoothing), included so the two Bayesian approaches above can be compared directly against the point-estimate method they build on.</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="gls_calibration_constants.html">gls_calibration_constants</a></code>
+
+        </dt>
+        <dd>Calibration constants for the GLS age calculator</dd>
+
+        <dt>
+
+          <code><a href="predict_age_gls.html">predict_age_gls()</a></code>
+
+        </dt>
+        <dd>GLS-combined two-acid age with softplus weight smoothing</dd>
       </dl></div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
@@ -296,7 +598,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

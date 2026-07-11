@@ -12,3 +12,7 @@
   1)](https://nickmckay.github.io/AARP/articles/kinetics-fitting.md):
 - [Holocene Temperature Reconstruction (Stage
   2)](https://nickmckay.github.io/AARP/articles/temperature-reconstruction.md):
+- [Two-Acid Age Dating: A Shared Forward Model (Asp +
+  Glu)](https://nickmckay.github.io/AARP/articles/two-acid-age-forward-model.md):
+- [Two-Acid Bayesian Age Inversion (Asp +
+  Glu)](https://nickmckay.github.io/AARP/articles/two-acid-age-inversion.md):
